@@ -1,0 +1,35 @@
+package heranca;
+
+public class ContaBancaria {
+	
+	protected String cliente;
+    protected String numeroConta;
+    protected double saldo;
+
+    public ContaBancaria(String cliente, String numeroConta, double saldoInicial) {
+        this.cliente = cliente;
+        this.numeroConta = numeroConta;
+        this.saldo = saldoInicial;
+    }
+
+    public void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+            System.out.println("saque de R$" + valor + " realizado na Conta Poupança.");
+        } else {
+            System.out.println("saldo insuficiente para saque.");
+        }
+    }
+
+    public void depositar(double valor) {
+        saldo += valor;
+        System.out.println("depósito de R$ " + valor + " realizado.");
+    }
+
+    public void mostrarDados() {
+        System.out.println("cliente: " + cliente);
+        System.out.println("número da conta: " + numeroConta);
+        System.out.println("saldo: R$" + saldo);
+    }
+
+}
