@@ -1,0 +1,32 @@
+package heranca;
+
+public class Contas {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ContaPoupança contaPoupança = new ContaPoupança("Taylor Swift", "013", 13000, 5);
+        ContaEspecial contaEspecial = new ContaEspecial("Taylor Swift", "089", 89, 1989);
+        
+        System.out.println("valor inicial Conta Poupança: R$ 13000.00");
+        System.out.println("valor inicial Conta Especial: R$ 89.00\n");
+        
+        contaPoupança.depositar(200);
+        contaEspecial.depositar(100);
+
+        contaPoupança.sacar(150);
+        contaEspecial.sacar(800);
+
+        contaPoupança.calcularNovoSaldo(0.05);
+
+        System.out.println("\ndados da Conta Poupança:");
+        contaPoupança.mostrarDados();
+
+        System.out.println("\ndados da Conta Especial:");
+        contaEspecial.mostrarDados();
+    
+
+	}
+
+}
+
