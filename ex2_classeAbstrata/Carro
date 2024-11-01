@@ -1,0 +1,33 @@
+package classe_abstrata;
+
+public class Carro extends Veiculo{
+	
+	private static final double taxaIPVA = 0.04;
+    private static final double desvAnual = 2000.0;
+
+    public Carro(String placa, String marca, String modelo, int anoFabricacao) {
+        super(placa, marca, modelo, anoFabricacao);
+    }
+
+    private double calcularValorEstimado() {
+        int anos = 2023 - anoFabricacao;
+        double valorEstimado = 50000.0 - (anos * desvAnual);
+        return Math.max(valorEstimado, 0);
+    }
+
+    @Override
+    public double calcularIPVA() {
+        return calcularValorEstimado() * taxaIPVA;
+    }
+
+    @Override
+    public void exibirDetalhes() {
+        System.out.println("Carro:");
+        System.out.println("placa: " + placa);
+        System.out.println("marca: " + marca);
+        System.out.println("modelo: " + modelo);
+        System.out.println("ano de fabricação: " + anoFabricacao);
+        System.out.println("valor IPVA: R$ " + calcularIPVA());
+    }
+
+}
