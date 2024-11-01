@@ -1,0 +1,8 @@
+package interfaces;
+
+public interface Acomodacao {
+	
+	double calcularDiaria(int dias);
+    void exibirDetalhes(int dias, int numeroPessoas);
+
+}
