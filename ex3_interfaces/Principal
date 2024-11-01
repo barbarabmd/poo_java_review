@@ -1,0 +1,37 @@
+package interfaces;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.print("escolha a acomodação (1 - Quarto Simples, 2 - Quarto Duplo, 3 - Suíte): ");
+			int tipoAcomodacao = scanner.nextInt();
+			
+			System.out.print("informe o número de dias: ");
+			int dias = scanner.nextInt();
+			
+			System.out.print("informe o número de pessoas: ");
+			int numeroPessoas = scanner.nextInt();
+
+			Acomodacao acomodacao;
+
+			switch (tipoAcomodacao) {
+			    case 1 -> acomodacao = new QuartoSimples();
+			    case 2 -> acomodacao = new QuartoDuplo();
+			    case 3 -> acomodacao = new Suite();
+			    default -> {
+			        System.out.println("opcao invalida.");
+			        return;
+			    }
+			}
+
+			acomodacao.exibirDetalhes(dias, numeroPessoas);
+		}
+
+	}
+
+}
