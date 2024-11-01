@@ -1,0 +1,31 @@
+package interfaces;
+
+public class Suite implements Acomodacao, ServicoAdicional {
+	
+	private static final double diaria = 350.0;
+    private static final double cafe = 20.0;
+    private static final double limpeza = 30.0;
+
+    @Override
+    public double calcularDiaria(int dias) {
+        return diaria * dias;
+    }
+
+    @Override
+    public double calcularServico(int dias, int numeroPessoas) {
+        return (cafe * numeroPessoas * dias) + (limpeza * dias);
+    }
+
+    @Override
+    public void exibirDetalhes(int dias, int numeroPessoas) {
+        double custoDiaria = calcularDiaria(dias);
+        double custoServico = calcularServico(dias, numeroPessoas);
+        System.out.println("Suíte:");
+        System.out.println("dias: " + dias);
+        System.out.println("pessoas: " + numeroPessoas);
+        System.out.println("custo da diária: R$ " + custoDiaria);
+        System.out.println("custo dos serviços adicionais: R$ " + custoServico);
+        System.out.println("custo total: R$ " + (custoDiaria + custoServico));
+    }
+
+}
